@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <property name="current_session_context_class">thread</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/Lab_DB</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <mapping class="ru.yaroslav.Entities.BookingEntity"/>
+      <mapping class="ru.yaroslav.Entities.CarEntity"/>
+      <mapping class="ru.yaroslav.Entities.DispatcherEntity"/>
+      <mapping class="ru.yaroslav.Entities.DriverEntity"/>
+      <mapping class="ru.yaroslav.Entities.PropertyEntity"/>
+      <mapping class="ru.yaroslav.Entities.RegistryOfPropertyEntity"/>
+      <mapping class="ru.yaroslav.Entities.ShiftsEntity"/>
+      <mapping class="ru.yaroslav.Entities.TaxiServiseEntity"/>
+      <mapping class="ru.yaroslav.Entities.UniformEntity"/>
+      <mapping class="ru.yaroslav.Entities.WorkerEntity"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

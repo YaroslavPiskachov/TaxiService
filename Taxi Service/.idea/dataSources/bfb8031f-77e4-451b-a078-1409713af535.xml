@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="dataSource">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="lab_db">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <schema id="7" parent="1" name="lab_db1"/>
+    <table id="8" parent="2" name="booking"/>
+    <table id="9" parent="2" name="cars"/>
+    <table id="10" parent="2" name="dispatcher"/>
+    <table id="11" parent="2" name="driver"/>
+    <table id="12" parent="2" name="shifts"/>
+    <table id="13" parent="2" name="taxi_servise"/>
+    <column id="14" parent="8" name="Distance">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="15" parent="8" name="Price">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="16" parent="8" name="Count_passangers">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="17" parent="8" name="Time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="18" parent="8" name="Address_arrive">
+      <Position>5</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="19" parent="8" name="Address_departure">
+      <Position>6</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="20" parent="8" name="id_shift">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="8" name="id_booking">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="22" parent="8" name="id_booking">
+      <ColNames>id_booking</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="23" parent="8" name="id_shift">
+      <ColNames>id_shift</ColNames>
+    </index>
+    <key id="24" parent="8" name="PRIMARY">
+      <ColNames>id_booking</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="25" parent="8" name="id_booking">
+      <ColNames>id_booking</ColNames>
+      <UnderlyingIndexName>id_booking</UnderlyingIndexName>
+    </key>
+    <foreign-key id="26" parent="8" name="booking_ibfk_1">
+      <ColNames>id_shift</ColNames>
+      <RefSchemaName>lab_db</RefSchemaName>
+      <RefTableName>shifts</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id_shift</RefColNames>
+    </foreign-key>
+    <trigger id="27" parent="8" name="calc_price">
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <column id="28" parent="9" name="car_number">
+      <Position>1</Position>
+      <DataType>char(8)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="9" name="year">
+      <Position>2</Position>
+      <DataType>year(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="9" name="model">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="9" name="id_car">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="9" name="id_service">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="33" parent="9" name="id_car">
+      <ColNames>id_car</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="34" parent="9" name="id_service_idx">
+      <ColNames>id_service</ColNames>
+    </index>
+    <key id="35" parent="9" name="id_car">
+      <ColNames>id_car</ColNames>
+      <UnderlyingIndexName>id_car</UnderlyingIndexName>
+    </key>
+    <foreign-key id="36" parent="9" name="id_service">
+      <ColNames>id_service</ColNames>
+      <RefSchemaName>lab_db</RefSchemaName>
+      <RefTableName>taxi_servise</RefTableName>
+      <RefColNames>id_service</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="37" parent="10" name="Full_name">
+      <Position>1</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="38" parent="10" name="id_service">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="10" name="PersonalCode">
+      <Position>3</Position>
+      <DataType>char(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="10" name="Age">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="41" parent="10" name="PersonalCode_UNIQUE">
+      <ColNames>PersonalCode</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="42" parent="10" name="dispatcher_fk1">
+      <ColNames>id_service</ColNames>
+    </index>
+    <key id="43" parent="10" name="PRIMARY">
+      <ColNames>PersonalCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="44" parent="10" name="PersonalCode_UNIQUE">
+      <ColNames>PersonalCode</ColNames>
+      <UnderlyingIndexName>PersonalCode_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="45" parent="10" name="dispatcher_fk1">
+      <ColNames>id_service</ColNames>
+      <RefSchemaName>lab_db</RefSchemaName>
+      <RefTableName>taxi_servise</RefTableName>
+      <RefColNames>id_service</RefColNames>
+    </foreign-key>
+    <column id="46" parent="11" name="Full_name">
+      <Position>1</Position>
+      <DataType>varchar(34)|0</DataType>
+    </column>
+    <column id="47" parent="11" name="Expiriance">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="48" parent="11" name="id_worker">
+      <Position>3</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="11" name="id_service">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="11" name="mobNumber">
+      <Position>5</Position>
+      <DataType>char(10)|0</DataType>
+    </column>
+    <index id="51" parent="11" name="driver_fk1">
+      <ColNames>id_service</ColNames>
+    </index>
+    <key id="52" parent="11" name="PRIMARY">
+      <ColNames>id_worker</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="53" parent="11" name="driver_fk1">
+      <ColNames>id_service</ColNames>
+      <RefSchemaName>lab_db</RefSchemaName>
+      <RefTableName>taxi_servise</RefTableName>
+      <RefColNames>id_service</RefColNames>
+    </foreign-key>
+    <column id="54" parent="12" name="Time_in">
+      <Position>1</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="12" name="Time_out">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="12" name="id_shift">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="12" name="id_worker">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="12" name="id_car">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="59" parent="12" name="id_shift">
+      <ColNames>id_shift</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="60" parent="12" name="id_worker_idx">
+      <ColNames>id_worker</ColNames>
+    </index>
+    <index id="61" parent="12" name="id_car">
+      <ColNames>id_car</ColNames>
+    </index>
+    <key id="62" parent="12" name="PRIMARY">
+      <ColNames>id_shift</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="63" parent="12" name="id_shift">
+      <ColNames>id_shift</ColNames>
+      <UnderlyingIndexName>id_shift</UnderlyingIndexName>
+    </key>
+    <foreign-key id="64" parent="12" name="id_worker">
+      <ColNames>id_worker</ColNames>
+      <RefSchemaName>lab_db</RefSchemaName>
+      <RefTableName>driver</RefTableName>
+      <RefColNames>id_worker</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="65" parent="12" name="shifts_fk1">
+      <ColNames>id_car</ColNames>
+      <RefSchemaName>lab_db</RefSchemaName>
+      <RefTableName>cars</RefTableName>
+      <RefColNames>id_car</RefColNames>
+    </foreign-key>
+    <column id="66" parent="13" name="id_service">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="13" name="Adress">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="68" parent="13" name="Phone_number">
+      <Position>3</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="69" parent="13" name="city">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="70" parent="13" name="PRIMARY">
+      <ColNames>id_service</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

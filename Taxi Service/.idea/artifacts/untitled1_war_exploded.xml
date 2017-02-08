@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="untitled1:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/untitled1_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="untitled1/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="untitled1" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.4.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.4.RELEASE" />
+          <element id="library" level="project" name="Hibernate 5.2.3-5.2.3" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.36" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.2.0.RELEASE" />
+        </element>
+      </element>
+      <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.2.1.Final" />
+    </root>
+  </artifact>
+</component>
